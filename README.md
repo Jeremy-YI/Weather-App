@@ -1,1 +1,6 @@
-# Weather-App
+- App
+  - CurrentWeather
+    - City(left)
+    - Type(mid)
+    - OtherDetails(right)
+  - UncomingWeather
