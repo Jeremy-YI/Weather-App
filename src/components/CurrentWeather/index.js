@@ -1,1 +1,1 @@
-export { default } from "./CurrentWeather"
+export { default } from './Weather.jsx'

@@ -1,12 +1,13 @@
-import React from "react"
-import styled from "styled-components"
+import React from 'react'
+import styled from 'styled-components'
+import moment from 'moment'
 import {
   BsSunrise,
   BsSunset,
   BsMoisture,
   BsWind,
   BsCompass,
-} from "react-icons/bs"
+} from 'react-icons/bs'
 
 const Container = styled.div`
   display: flex;
@@ -20,29 +21,29 @@ const Box = styled.div`
   grid-template-rows: repeat(6, 1fr);
   gap: 1rem;
 `
-const OtherDetails = () => {
+const OtherDetails = ({ weather }) => {
   return (
     <Container>
       <Box>
         <div>
           <BsSunrise />
-          <span>Sunrise: 7.00</span>
+          <span>&nbsp;{moment.unix(weather.sunrise).format('LT')}</span>
         </div>
         <div>
           <BsSunset />
-          <span>Sunset: 7.00</span>
+          <span>&nbsp;{moment.unix(weather.sunset).format('LT')}</span>
         </div>
         <div>
           <BsMoisture />
-          <span>Humidity: 60%</span>
+          <span>&nbsp;{weather.humidity}%</span>
         </div>
         <div>
           <BsWind />
-          <span>Wind Speed: 10km/h</span>
+          <span>&nbsp;{weather.speed}km/h</span>
         </div>
         <div>
           <BsCompass />
-          <span>Direction: North-East</span>
+          <span>&nbsp;{weather.pressure}Pa</span>
         </div>
       </Box>
     </Container>

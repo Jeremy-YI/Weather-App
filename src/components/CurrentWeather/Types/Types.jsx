@@ -1,6 +1,5 @@
-import React from "react"
-import styled from "styled-components"
-import Image from "../../Asserts/type1.png"
+import React from 'react'
+import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
@@ -14,14 +13,14 @@ const Box = styled.div`
   grid-template-rows: repeat(2, 1fr);
 `
 
-const Types = () => {
+const Types = ({ weather }) => {
   return (
     <Container>
       <Box>
         <div>
-          <img src={Image} alt="img" />
+          <img src={weather.iconURL} alt="weatherIcon" />
         </div>
-        <div>types</div>
+        <div>{weather.description}</div>
       </Box>
     </Container>
   )

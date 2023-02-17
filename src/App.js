@@ -1,9 +1,9 @@
-import React from "react"
-import CurrentWeather from "./components/CurrentWeather"
-import UncomingWeather from "./components/UncomingWeather"
-import GlobalStyle from "./theme/GlobalStyle"
-import styled from "styled-components"
-import theme from "./theme/index"
+import React from 'react'
+import Weather from './components/CurrentWeather/Weather'
+import WeeklyWeather from './components/WeeklyWeather'
+import GlobalStyle from './theme/GlobalStyle'
+import styled from 'styled-components'
+import theme from './theme/index'
 
 const GlobalContainer = styled.div`
   display: flex;
@@ -16,19 +16,17 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1000px;
-  border-radius: 25px;
+  width: 100rem;
+  border-radius: 2.5rem;
 `
 const App = () => {
-  const API_KEY = process.env.REACT_APP_API_KEY
-  console.log(API_KEY)
   return (
     <>
       <GlobalStyle />
       <GlobalContainer>
         <Container>
-          <CurrentWeather />
-          <UncomingWeather />
+          <Weather />
+          <WeeklyWeather />
         </Container>
       </GlobalContainer>
     </>
