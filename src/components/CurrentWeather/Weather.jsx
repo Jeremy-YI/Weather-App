@@ -3,8 +3,7 @@ import City from './City'
 import Types from './Types'
 import OtherDetails from './OtherDetails'
 import styled from 'styled-components'
-import getWeatherData from '../../weatherApi'
-import WeeklyWeather from '../WeeklyWeather/WeeklyWeather'
+import getWeatherData from '../../weatherApi/currentWeatherApi'
 
 const Container = styled.div`
   display: flex;

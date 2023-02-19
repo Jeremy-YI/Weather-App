@@ -1,6 +1,7 @@
 const API_KEY = `6096dcd8a1b4b21aff4f8b250e23de45`
 
 const getWeatherData = async (city, units = 'metric') => {
+  // const API_URL = `https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}`
   const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`
   const data = await fetch(API_URL)
     .then((res) => res.json())

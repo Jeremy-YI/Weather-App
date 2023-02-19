@@ -4,7 +4,7 @@ import moment from 'moment'
 
 const Container = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 `
 
@@ -12,8 +12,8 @@ const Box = styled.div`
   display: grid;
   border: solid 1px rgba(0, 0, 0, 0.3);
   grid-template-columns: repeat(7, 1rem);
-  margin: 1rem;
-  gap: 1rem;
+  margin: 0.5rem;
+  gap: 0.5rem;
 `
 const Section = styled.section`
   display: flex;
@@ -36,11 +36,11 @@ const WeeklyWeather = () => {
         setWeatherData(data.list)
       })
   }, [])
-  console.log(weatherData)
+
   return (
     <div>
-      <h2>DAILY FORCAST</h2>
       <Container>
+        <h2>DAILY FORCAST</h2>
         <ul style={{ display: 'flex', flexDirection: 'row' }}>
           {weatherData &&
             weatherData.map((item, index) => (

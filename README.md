@@ -3,4 +3,4 @@
     - City(left)
     - Type(mid)
     - OtherDetails(right)
-  - UncomingWeather
+  - WeeklyWeather
