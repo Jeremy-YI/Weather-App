@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import moment from 'moment'
+// import moment from 'moment'
 import {
   BsSunrise,
   BsSunset,
@@ -22,28 +22,43 @@ const Box = styled.div`
   gap: 1rem;
 `
 const OtherDetails = ({ weather }) => {
+  let sunrise = weather.forecast.forecastday[0].astro.sunrise
+  let sunset = weather.forecast.forecastday[0].astro.sunset
+  let humidity = weather.forecast.forecastday[0].day.avghumidity
+  let wind = weather.forecast.forecastday[0].day.avgvis_km
+  let pressure = weather.current.pressure_mb
   return (
     <Container>
       <Box>
         <div>
           <BsSunrise />
-          <span>&nbsp;{moment.unix(weather.sunrise).format('LT')}</span>
+          <span>&nbsp;{sunrise}</span>
         </div>
         <div>
           <BsSunset />
-          <span>&nbsp;{moment.unix(weather.sunset).format('LT')}</span>
+          <span>&nbsp;{sunset}</span>
         </div>
         <div>
           <BsMoisture />
-          <span>&nbsp;{weather.humidity}%</span>
+          <span>
+            &nbsp;
+            {humidity}
+            &nbsp;%
+          </span>
         </div>
         <div>
           <BsWind />
-          <span>&nbsp;{weather.speed}km/h</span>
+          <span>
+            &nbsp;{wind}
+            &nbsp;km/h
+          </span>
         </div>
         <div>
           <BsCompass />
-          <span>&nbsp;{weather.pressure}Pa</span>
+          <span>
+            &nbsp;{pressure}
+            &nbsp;hPa
+          </span>
         </div>
       </Box>
     </Container>

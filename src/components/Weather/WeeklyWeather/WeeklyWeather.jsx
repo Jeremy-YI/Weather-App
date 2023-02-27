@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import moment from 'moment'
+import styled from 'styled-components'
 
 const Container = styled.div`
   display: flex;
@@ -22,32 +22,22 @@ const Section = styled.section`
   justify-content: center;
 `
 
-const WeeklyWeather = () => {
-  const [city, setCity] = useState('Sydney')
-  const [units, setUnits] = useState('metric')
-  const [weatherData, setWeatherData] = useState([])
-
-  useEffect(() => {
-    const API_KEY = '2994db22be2c06543bfc02266890b2d4'
-    const API_URL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=${units}&cnt=${7}`
-    fetch(API_URL)
-      .then((response) => response.json())
-      .then((data) => {
-        setWeatherData(data.list)
-      })
-  }, [])
-
+const WeeklyWeather = ({ weather }) => {
+  console.log(weather)
   return (
     <div>
+      <h2>DAILY FORCAST</h2>
+      <hr style={{ backgroundColor: 'black', color: 'black' }} />
       <Container>
-        <h2>DAILY FORCAST</h2>
         <ul style={{ display: 'flex', flexDirection: 'row' }}>
-          {weatherData &&
-            weatherData.map((item, index) => (
-              <Box key={item.dt}>
-                {item.weather[0].icon}
+          {weather &&
+            weather.forecast.forecastday.map((item, index) => (
+              <Box key={index}>
+                {item.day.condition.icon}
                 <br />
-                {item.main.temp.toFixed()}&deg;C
+                Avg&nbsp;
+                {((item.day.maxtemp_c + item.day.mintemp_c) / 2).toFixed()}
+                &deg;C
                 <br />
                 {(item.date = moment().add(index, 'days').format('dddd'))}
               </Box>

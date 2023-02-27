@@ -1,6 +1,5 @@
 import React from 'react'
-import Weather from './components/CurrentWeather/Weather'
-import WeeklyWeather from './components/WeeklyWeather'
+import Weather from './components/Weather'
 import GlobalStyle from './theme/GlobalStyle'
 import styled from 'styled-components'
 import theme from './theme/index'
@@ -26,7 +25,6 @@ const App = () => {
       <GlobalContainer>
         <Container>
           <Weather />
-          <WeeklyWeather />
         </Container>
       </GlobalContainer>
     </>
