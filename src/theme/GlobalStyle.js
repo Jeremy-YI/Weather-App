@@ -16,5 +16,6 @@ const GlobalStyle = createGlobalStyle`
     color: ${theme.palette.text_color};
     
   }
+
 `
 export default GlobalStyle

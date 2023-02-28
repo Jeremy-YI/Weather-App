@@ -3,7 +3,6 @@ import City from './City'
 import Types from './Types'
 import OtherDetails from './OtherDetails'
 import styled from 'styled-components'
-// import TextField from '@mui/material/TextField'
 import { fetchWeatherByCity } from '../../weatherApi/weatherApi'
 import WeeklyWeather from './WeeklyWeather/WeeklyWeather'
 
@@ -34,35 +33,44 @@ const Box = styled.div`
   grid-template-columns: repeat(3, 1fr);
   padding: 2rem;
 `
-const CurrentWeather = () => {
+const CurrentWeather = ({ prop }) => {
   const [city, setCity] = useState('Sydney')
-  const [weather, setWeather] = useState(null)
+  const [weather, setWeather] = useState('')
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchWeatherData = async () => {
       const data = await fetchWeatherByCity(city)
       setWeather(data)
+      setLoading(false)
     }
     fetchWeatherData()
   }, [city])
 
-  const handleButtonClick = (e) => {
-    e.preventDefault()
-    const value = e.target.value
-    setCity(value)
+  function handleSubmit(event) {
+    event.preventDefault()
+  }
+
+  const enterKeyPressed = (e) => {
+    if (e.keyCode === 13) {
+      setCity(e.currentTarget.value)
+      e.currentTarget.blur()
+    }
   }
 
   return (
     <div style={{ display: 'flex' }}>
       <Container>
-        {weather && (
-          <form>
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : (
+          <form onSubmit={handleSubmit}>
             <SearchSection>
               <SearchBar
                 type="text"
-                name="city"
+                id="city"
                 placeholder="Search for citys...."
-                onChange={handleButtonClick}
+                onKeyDown={enterKeyPressed}
               />
             </SearchSection>
             <Box>

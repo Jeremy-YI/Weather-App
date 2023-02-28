@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../../../theme'
 import { FiThermometer } from 'react-icons/fi'
 
 const Container = styled.div`
@@ -13,24 +12,24 @@ const Container = styled.div`
 const Box = styled.div`
   display: grid;
   grid-template-rows: repeat(3, 1fr);
+  padding: 1rem;
 `
 const CityStyle = styled.text`
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
-  padding: 2rem;
+  padding: 1rem;
 `
 const DateStyle = styled.text`
   font-size: 2rem;
-  margin-left: 2rem;
+  padding: 1rem;
 `
 const WeekdayStyle = styled.text`
   font-size: 1.5rem;
-  margin-left: 2rem;
+  padding: 1rem;
 `
 const TempratureStyle = styled.text`
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: bold;
-  padding: 0 2rem;
 `
 const getLocalTime = (lat, lon) => {
   const currentTime = new Date().getTime() / 1000
@@ -49,6 +48,17 @@ const getLocalTime = (lat, lon) => {
 }
 
 const City = ({ city }) => {
+  const tempColor = (temp) => {
+    if (temp > 20) {
+      return <FiThermometer size={45} color={'red'} />
+    }
+    if (temp > 0) {
+      return <FiThermometer size={45} />
+    }
+    if (temp < 0) {
+      return <FiThermometer size={45} color={'#1E90FF'} />
+    }
+  }
   return (
     <Container>
       <Box>
@@ -63,7 +73,7 @@ const City = ({ city }) => {
           </WeekdayStyle>
         </div>
         <TempratureStyle>
-          <FiThermometer size={45} color={'red'} />
+          {tempColor(city.current.temp_c)}
           {city.current.temp_c}&#176;
         </TempratureStyle>
       </Box>

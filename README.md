@@ -1,6 +1,8 @@
 - App
-  - CurrentWeather
-    - City(left)
-    - Type(mid)
-    - OtherDetails(right)
-  - WeeklyWeather
+  - Weather
+    - top
+      - City(left)
+      - Type(mid)
+      - OtherDetails(right)
+    - bottom
+      - WeeklyWeather

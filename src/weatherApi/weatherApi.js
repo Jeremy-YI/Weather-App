@@ -14,7 +14,7 @@ export const fetchWeatherByCity = async (city) => {
   const data = await response.json()
   return data
 
-  // const data = await fetch(URL)
+  // const response = await fetch(URL)
   //   .then((res) => res.json())
   //   .then((data) => data)
   // console.log(data)
