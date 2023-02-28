@@ -13,7 +13,7 @@ const Container = styled.div`
 const SearchSection = styled.div`
   display: flex;
   flex-direction: row;
-  margin-top: 3rem;
+  margin: 3rem;
   justify-content: center;
   align-items: center;
 `
@@ -32,6 +32,11 @@ const Box = styled.div`
   border: solid 1px rgba(0, 0, 0, 0.3);
   grid-template-columns: repeat(3, 1fr);
   padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 3px 8px 0px rgb(0, 0, 0, 0.4);
+  transition-property: transform, box-shadow;
+  transition-duration: 0.3s;
+  opacity: 1;
 `
 const CurrentWeather = ({ prop }) => {
   const [city, setCity] = useState('Sydney')
